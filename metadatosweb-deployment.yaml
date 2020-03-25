@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: metadatosweb
+  labels:
+    app: metadatos
+spec:
+  selector:
+    matchLabels:
+      app: metadatos
+      tier: web
+  template:
+    metadata:
+      labels:
+        app: metadatos
+        tier: web
+    spec:
+      containers:
+      - name: metadatos-app
+        image: gcr.io/proyecto-prueba-271416/hello-app:1.0
+        ports:
+        - containerPort: 3005
